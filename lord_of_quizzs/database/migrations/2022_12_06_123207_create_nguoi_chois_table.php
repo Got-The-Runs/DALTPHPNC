@@ -13,18 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('nguoi_chois', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->integer('trang_thai');
-            $table->timestamps();
+            $table->string('ngay_choi');
+            $table->double('tong_diem');
+            // $table->timestamps();
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      *
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('nguoi_chois');
     }
 };

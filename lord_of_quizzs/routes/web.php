@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LinhVucController;
+use App\Http\Controllers\BoCauHoiController;
+use App\Http\Controllers\ChiTietBoCauHoiController;
+use App\Http\Controllers\CauHoiController;
+use App\Http\Controllers\NguoiChoiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::resource('/chitietbocauhois',ChiTietBoCauHoiController::class);
+Route::resource('/linhvucs',LinhVucController::class);
+Route::resource('/bocauhois',BoCauHoiController::class);
+Route::resource('/cauhois',CauHoiController::class);
+Route::resource('/nguoichois',NguoiChoiController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -40,4 +48,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
+
 
