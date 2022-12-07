@@ -42,7 +42,6 @@ class BoCauHoiController extends Controller
     {
         $p =BoCauHoi::create(
             [
-                'id_bo_cau_hoi' =>$request->id_bo_cau_hoi,
                 'linh_vuc_id'=>$request->linhvuc,
                 'trang_thai'=> 1,
             ]

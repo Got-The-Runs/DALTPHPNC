@@ -24,7 +24,11 @@ class StoreBoCauHoiRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'linhvuc'=>['required']
         ];
+    }
+
+    public function messages(){
+        return ['linhvuc.required'=>'Chưa Chọn Lĩnh Vực'];
     }
 }
