@@ -20,11 +20,7 @@ use App\Http\Controllers\NguoiChoiController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/chitietbocauhois',ChiTietBoCauHoiController::class);
-Route::resource('/linhvucs',LinhVucController::class);
-Route::resource('/bocauhois',BoCauHoiController::class);
-Route::resource('/cauhois',CauHoiController::class);
-Route::resource('/nguoichois',NguoiChoiController::class);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -33,6 +29,11 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
+		Route::resource('/chitietbocauhois',ChiTietBoCauHoiController::class);
+		Route::resource('/linhvucs',LinhVucController::class);
+		Route::resource('/bocauhois',BoCauHoiController::class);
+		Route::resource('/cauhois',CauHoiController::class);
+		Route::resource('/nguoichois',NguoiChoiController::class);
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'App\Http\Controllers\PageController@maps']);
 		Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'App\Http\Controllers\PageController@notifications']);
