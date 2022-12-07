@@ -59,10 +59,10 @@
                 <div class="wrapper">
                         <div class="sidebar">
                                 <div class="sidebar-wrapper">
-                                    <div class="logo">
+                                    <!-- <div class="logo">
                                         <a href="#" class="simple-text logo-mini">{{ _('BD') }}</a>
                                         <a href="#" class="simple-text logo-normal">{{ _('Black Dashboard') }}</a>
-                                    </div>
+                                    </div> -->
                                     <ul class="nav">
                                         <li>
                                             <a href="{{ route('home') }}">
@@ -73,7 +73,7 @@
                                         <li>
                                             <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                                                 <i class="fab fa-laravel" ></i>
-                                                <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
+                                                <span class="nav-link-text" >{{ __('Tài Khoản') }}</span>
                                                 <b class="caret mt-1"></b>
                                             </a>
                             
@@ -82,13 +82,13 @@
                                                     <li >
                                                         <a href="{{ route('profile.edit')  }}">
                                                             <i class="tim-icons icon-single-02"></i>
-                                                            <p>{{ _('User Profile') }}</p>
+                                                            <p>{{ _('Thông Tin Tài Khoản') }}</p>
                                                         </a>
                                                     </li>
                                                     <li class="active">
                                                         <a href="{{ route('user.index')  }}">
                                                             <i class="tim-icons icon-bullet-list-67"></i>
-                                                            <p>{{ _('User Management') }}</p>
+                                                            <p>{{ _('Danh Sách tài khoản') }}</p>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -282,7 +282,7 @@
                 </nav>
             </div>
         </div>
-        <div class="alert alert-danger">
+        <!-- <div class="alert alert-danger">
                 <span>
                   <b> </b> This is a <b>PRO</b> feature!</span>
               </div>
@@ -290,8 +290,8 @@
 </div>
                 </div>
 
-                <footer class="footer">
-<div class="container-fluid">
+                <footer class="footer"> -->
+<!-- <div class="container-fluid">
     <ul class="nav">
         <li class="nav-item">
             <a href="https://creative-tim.com" target="blank" class="nav-link">
@@ -313,14 +313,14 @@
                 Blog
             </a>
         </li>
-    </ul>
-    <div class="copyright">
+    </ul> -->
+    <!-- <div class="copyright">
         © 2020 made with <i class="tim-icons icon-heart-2"></i> by
         <a href="https://creative-tim.com" target="_blank">Creative Tim</a> &amp;
         <a href="https://updivision.com" target="_blank">Updivision</a> for a better web.
-    </div>
-</div>
-</footer>
+    </div> -->
+<!-- </div> -->
+<!-- </footer> -->
             </div>
         </div>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -331,7 +331,7 @@
             <i class="fa fa-cog fa-2x"> </i>
             </a>
             <ul class="dropdown-menu">
-            <li class="header-title"> Sidebar Background</li>
+            <li class="header-title"> Màu Nền</li>
             <li class="adjustments-line">
                 <a href="javascript:void(0)" class="switch-trigger background-color">
                 <div class="badge-colors text-center">
@@ -342,7 +342,7 @@
                 <div class="clearfix"></div>
                 </a>
             </li>
-            <li class="button-container">
+            <!-- <li class="button-container">
                 <a href="https://www.creative-tim.com/product/black-dashboard-laravel" target="_blank" class="btn btn-primary btn-block btn-round">Download Now</a>
                 <a href="https://black-dashboard-laravel.creative-tim.com/docs/getting-started/laravel-setup.html" target="_blank" class="btn btn-default btn-block btn-round">
                 Documentation
@@ -358,7 +358,7 @@
                 <br>
                 <br>
                 <a class="github-button" href="https://github.com/creativetimofficial/black-dashboard-laravel" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-            </li>
+            </li> -->
             </ul>
         </div>
     </div>

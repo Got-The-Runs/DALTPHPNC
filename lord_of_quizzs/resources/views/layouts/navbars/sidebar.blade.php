@@ -14,7 +14,7 @@
             <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel" ></i>
-                    <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
+                    <span class="nav-link-text" >{{ __('Tài Khoản') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
 
@@ -23,13 +23,13 @@
                         <li @if ($pageSlug = 'profile') class="active " @endif>
                             <a href="{{ route('profile.edit')  }}">
                                 <i class="tim-icons icon-single-02"></i>
-                                <p>{{ __('User Profile') }}</p>
+                                <p>{{ __('Thông Tin Tài Khoản') }}</p>
                             </a>
                         </li>
                         <li @if ($pageSlug = 'users') class="active " @endif>
                             <a href="{{ route('user.index')  }}">
                                 <i class="tim-icons icon-bullet-list-67"></i>
-                                <p>{{ __('User Management') }}</p>
+                                <p>{{ __('Danh Sách Tài khoản') }}</p>
                             </a>
                         </li>
                     </ul>
@@ -59,12 +59,7 @@
                     <p>{{ __('Chi Tiết Bộ Câu Hỏi') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug = 'nguoichoi') class="active " @endif>
-                <a href="{{ route('nguoichois.index') }}">
-                <i class="tim-icons icon-single-02"></i>              
-                    <p>{{ __('Lịch Sử Người Chơi') }}</p>
-                </a>
-            </li>
+         
             <!-- <li @if ($pageSlug = 'maps') class="active " @endif>
                 <a href="{{ route('pages.maps') }}">
                     <i class="tim-icons icon-pin"></i>
