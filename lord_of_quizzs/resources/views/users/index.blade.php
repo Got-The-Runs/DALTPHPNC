@@ -94,52 +94,40 @@
                                                 </ul>
                                             </div>
                                         </li>
-                                        <li >
-                                            <a href="{{ route('pages.icons') }}">
-                                                <i class="tim-icons icon-atom"></i>
-                                                <p>{{ _('Icons') }}</p>
-                                            </a>
                                         </li>
-                                        <li >
-                                            <a href="{{ route('pages.maps') }}">
-                                                <i class="tim-icons icon-pin"></i>
-                                                <p>{{ _('Maps') }}</p>
-                                            </a>
-                                        </li>
-                                        <li >
-                                            <a href="{{ route('pages.notifications') }}">
-                                                <i class="tim-icons icon-bell-55"></i>
-                                                <p>{{ _('Notifications') }}</p>
-                                            </a>
-                                        </li>
-                                        <li >
-                                            <a href="{{ route('pages.tables') }}">
-                                                <i class="tim-icons icon-puzzle-10"></i>
-                                                <p>{{ _('Table List') }}</p>
-                                            </a>
-                                        </li>
-                                        <li >
-                                            <a href="{{ route('pages.typography') }}">
-                                                <i class="tim-icons icon-align-center"></i>
-                                                <p>{{ _('Typography') }}</p>
-                                            </a>
-                                        </li>
-                                        <li >
-                                            <a href="{{ route('pages.rtl') }}">
-                                                <i class="tim-icons icon-world"></i>
-                                                <p>{{ _('RTL Support') }}</p>
-                                            </a>
-                                        </li>
-                                        <li class=" {{ $pageSlug == 'upgrade' ? 'active' : '' }} bg-info">
-                                            <a href="{{ route('pages.upgrade') }}">
-                                                <i class="tim-icons icon-spaceship"></i>
-                                                <p>{{ _('Upgrade to PRO') }}</p>
-                                            </a>
-                                        </li>
+            <li @if ($pageSlug = 'cauhoi') class="active " @endif>
+                <a href="{{ route('cauhois.index') }}">
+                    <i class="tim-icons icon-puzzle-10"></i>
+                    <p>{{ __('Câu Hỏi') }}</p>
+                </a>
+            </li>
+            <li @if ($pageSlug = 'linhvuc') class="active " @endif>
+                <a href="{{ route('linhvucs.index') }}">
+                    <i class="tim-icons icon-atom"></i>
+                    <p>{{ __('Lĩnh Vực') }}</p>
+                </a>
+            </li>
+            <li @if ($pageSlug = 'bocauhoi') class="active " @endif>
+                <a href="{{ route('bocauhois.index') }}">
+                    <i class="tim-icons icon-align-center"></i>
+                    <p>{{ __('Bộ Câu Hỏi') }}</p>
+                </a>
+            </li>
+            <li @if ($pageSlug = 'chitietbocauhoi') class="active " @endif>
+                <a href="{{ route('chitietbocauhois.index') }}">
+                    <i class="tim-icons icon-bullet-list-67"></i>
+                    <p>{{ __('Chi Tiết Bộ Câu Hỏi') }}</p>
+                </a>
+            </li>
+            <li @if ($pageSlug = 'nguoichoi') class="active " @endif>
+                <a href="{{ route('nguoichois.index') }}">
+                <i class="tim-icons icon-single-02"></i>              
+                    <p>{{ __('Lịch Sử Người Chơi') }}</p>
+                </a>
+            </li>
                                     </ul>
                                 </div>
-                            </div>
-                            
+                            </div>                       
             <div class="main-panel">
                     <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
                             <div class="container-fluid">
