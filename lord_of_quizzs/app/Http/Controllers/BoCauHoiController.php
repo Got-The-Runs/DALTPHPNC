@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LinhVuc;
 use App\Models\BoCauHoi;
 use App\Http\Requests\StoreBoCauHoiRequest;
 use App\Http\Requests\UpdateBoCauHoiRequest;
@@ -27,7 +28,8 @@ class BoCauHoiController extends Controller
      */
     public function create()
     {
-        //
+        $lst = LinhVuc::all();
+        return view('bocauhoi_create',['lst'=> $lst]);
     }
 
     /**
@@ -38,7 +40,14 @@ class BoCauHoiController extends Controller
      */
     public function store(StoreBoCauHoiRequest $request)
     {
-        //
+        $p =BoCauHoi::create(
+            [
+                'id_bo_cau_hoi' =>$request->id_bo_cau_hoi,
+                'linh_vuc_id'=>$request->linhvuc,
+                'trang_thai'=> 1,
+            ]
+        );
+        return redirect()->route('bocauhois.index');
     }
 
     /**

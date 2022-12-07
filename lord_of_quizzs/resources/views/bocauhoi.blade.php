@@ -11,7 +11,7 @@
                       <h4 class="card-title"> Danh Sách Bộ Câu Hỏi</h4>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="#" class="btn btn-sm btn-primary">Thêm Bộ Câu Hỏi</a>
+                      <a href="{{ route('bocauhois.create') }}" class="btn btn-fill btn-success">Thêm Bộ Câu Hỏi</a>
                     </div>
                 </div>
       </div>

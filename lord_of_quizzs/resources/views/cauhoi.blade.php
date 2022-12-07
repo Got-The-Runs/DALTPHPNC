@@ -10,7 +10,7 @@
                         <h4 class="card-title">Danh Sách Câu Hỏi</h4>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="#" class="btn btn-sm btn-primary">Thêm Câu Hỏi</a>
+                        <a href="#" class="btn btn-fill btn-success">Thêm Câu Hỏi</a>
                     </div>
                 </div>
       </div>

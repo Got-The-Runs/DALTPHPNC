@@ -119,12 +119,7 @@
                     <p>{{ __('Chi Tiết Bộ Câu Hỏi') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug = 'nguoichoi') class="active " @endif>
-                <a href="{{ route('nguoichois.index') }}">
-                <i class="tim-icons icon-single-02"></i>              
-                    <p>{{ __('Lịch Sử Người Chơi') }}</p>
-                </a>
-            </li>
+        
                                     </ul>
                                 </div>
                             </div>                       
@@ -153,13 +148,13 @@
                                                 <span class="d-lg-none d-md-block">{{ __('Search') }}</span>
                                             </button>
                                         </li>
-                                        <li class="dropdown nav-item">
+                                        <!-- <li class="dropdown nav-item">
                                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                                 <div class="notification d-none d-lg-block d-xl-block"></div>
                                                 <i class="tim-icons icon-sound-wave"></i>
                                                 <p class="d-lg-none"> {{ __('Notifications') }} </p>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
+                                            </a> -->
+                                            <!-- <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
                                                 <li class="nav-link">
                                                     <a href="#" class="nav-item dropdown-item">{{ __('Mike John responded to your email') }}</a>
                                                 </li>
@@ -175,8 +170,8 @@
                                                 <li class="nav-link">
                                                     <a href="#" class="nav-item dropdown-item">{{ __('Another one') }}</a>
                                                 </li>
-                                            </ul>
-                                        </li>
+                                            </ul> -->
+                                        <!-- </li> -->
                                         <li class="dropdown nav-item">
                                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                                 <div class="photo">
@@ -245,37 +240,53 @@
                 </div>
             </div>
             <div class="card-body">
-                
-                <div class="">
-                    <table class="table tablesorter " id="">
-                        <thead class=" text-primary">
-                            <tr><th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Creation Date</th>
-                            <th scope="col"></th>
-                        </tr></thead>
-                        <tbody>
-                                                                <tr>
-                                    <td>Admin Admin</td>
-                                    <td>
-                                        <a href="mailto:admin@black.com">admin@black.com</a>
-                                    </td>
-                                    <td>24/02/2020 16:47</td>
-                                    <td class="text-right">
-                                            <div class="dropdown">
-                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                                                                                <a class="dropdown-item" href="#">Edit</a>
-                                                                                                        </div>
-                                            </div>
-                                    </td>
-                                </tr>
-                                                        </tbody>
-                    </table>
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+            <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Email
+                </th>
+                <th>
+                  Trạng Thái 
+                </th>
+              </tr>
+            @foreach($lst as $p)
+                <div class="user">                
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td>
+                        <p>{{$p->name}}</p>
+                    </td>
+                    <td>
+                        <p>{{$p->email}}</p>
+                    </td>
+                    <td>
+                            <p>{{$p->trang_thai}}</p>
+                       
+                    </td>
                 </div>
-            </div>
+
+                                    <td class="text-right">
+                                        <div class="dropdown">
+                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                               <i class="fas fa-ellipsis-v"></i>
+                                            </a>
+                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                      <a class="dropdown-item" href="#">Edit</a>
+                                      <a class="dropdown-item" href="#">Delete</a>
+                                   </div>
+                               </div>
+                            </td>
+                            </tr>
+            </tbody>
+            @endforeach   
+          </table>
+        </div>
             <div class="card-footer py-4">
                 <nav class="d-flex justify-content-end" aria-label="...">
                     

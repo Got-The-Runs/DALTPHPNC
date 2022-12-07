@@ -5,7 +5,6 @@ use App\Http\Controllers\LinhVucController;
 use App\Http\Controllers\BoCauHoiController;
 use App\Http\Controllers\ChiTietBoCauHoiController;
 use App\Http\Controllers\CauHoiController;
-use App\Http\Controllers\NguoiChoiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +32,6 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('/linhvucs',LinhVucController::class);
 		Route::resource('/bocauhois',BoCauHoiController::class);
 		Route::resource('/cauhois',CauHoiController::class);
-		Route::resource('/nguoichois',NguoiChoiController::class);
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'App\Http\Controllers\PageController@maps']);
 		Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'App\Http\Controllers\PageController@notifications']);

@@ -10,7 +10,7 @@
                       <h4 class="card-title"> Danh Sách Lĩnh Vực</h4>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="#" class="btn btn-sm btn-primary">Thêm Lĩnh Vực</a>
+                        <a href="#" class="btn btn-fill btn-success">Thêm Lĩnh Vực</a>
                     </div>
                 </div>
       </div>

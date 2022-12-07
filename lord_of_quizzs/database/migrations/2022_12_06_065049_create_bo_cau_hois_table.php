@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('bo_cau_hois', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_bo_cau_hoi');
             $table->integer('trang_thai');
             $table->softDeletes();
             // $table->timestamps();
