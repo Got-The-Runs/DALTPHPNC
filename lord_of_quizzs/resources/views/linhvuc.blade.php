@@ -6,11 +6,11 @@
     <div class="card ">
       <div class="card-header">
         <div class="row">
-                    <div class="col-8">
+                    <div class="col-8 pt-3">
                       <h4 class="card-title"> Danh Sách Lĩnh Vực</h4>
                     </div>
-                    <div class="col-4 text-right">
-                        <a href="#" class="btn btn-fill btn-success">Thêm Lĩnh Vực</a>
+                    <div class="col-4 text-right mb-4">
+                        <a href="{{ route('linhvucs.create') }}" class="btn btn-fill btn-success">Thêm Lĩnh Vực</a>
                     </div>
                 </div>
       </div>
@@ -43,7 +43,7 @@
                         <p>{{$p->ten_linh_vuc}}</p>
                     </td>
                     <td>
-                        <p>{{$p->trang_thai}}</p>
+                        <p>{{$p->trang_thai==1?"Hoạt Động":"Không Hoạt Động"}}</p>
                     </td>
                 </div>
                 <td class="text-right">

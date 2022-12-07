@@ -266,7 +266,7 @@
                         <p>{{$p->email}}</p>
                     </td>
                     <td>
-                            <p>{{$p->trang_thai}}</p>
+                            <p>{{$p->trang_thai==1?"Hoạt Động":"Không Hoạt Động"}}</p>
                        
                     </td>
                 </div>
