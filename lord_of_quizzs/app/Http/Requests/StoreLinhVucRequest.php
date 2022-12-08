@@ -13,7 +13,7 @@ class StoreLinhVucRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class StoreLinhVucRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'ten_linh_vuc'=>['required','unique:linh_vucs'],
         ];
+    }
+    public function messages(){
+        return ['ten_linh_vuc.required'=>'Chưa nhập tên lĩnh vực','ten_linh_vuc.unique'=>'Đã tồn tại tên lĩnh vực'];
+        
     }
 }

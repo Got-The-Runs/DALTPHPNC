@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChiTietBoCauHoi;
+use App\Models\BoCauHoi;
+use App\Models\CauHoi;
 use App\Http\Requests\StoreChiTietBoCauHoiRequest;
 use App\Http\Requests\UpdateChiTietBoCauHoiRequest;
 
@@ -26,7 +28,9 @@ class ChiTietBoCauHoiController extends Controller
      */
     public function create()
     {
-        //
+        $lsBoCauHoi = BoCauHoi::all();
+        $lsCauHoi = CauHoi::all();
+        return view('chitietbocauhoi_create',['lsBoCauHoi'=> $lsBoCauHoi,'lsCauHoi'=>$lsCauHoi]);
     }
 
     /**
@@ -37,7 +41,14 @@ class ChiTietBoCauHoiController extends Controller
      */
     public function store(StoreChiTietBoCauHoiRequest $request)
     {
-        //
+        $p =ChiTietBoCauHoi::create(
+            [
+                'bo_cau_hoi_id'=>$request->bo_cau_hoi_id,
+                'cau_hoi_id'=>$request->cau_hoi_id,
+                'trang_thai'=> 1,
+            ]
+        );
+        return redirect()->route('chitietbocauhois.index');
     }
 
     /**

@@ -27,6 +27,7 @@ class LinhVucController extends Controller
     public function create()
     {
         //
+        return view('linhvuc_create');
     }
 
     /**
@@ -38,6 +39,13 @@ class LinhVucController extends Controller
     public function store(StoreLinhVucRequest $request)
     {
         //
+        $p =LinhVuc::create(
+            [
+                'ten_linh_vuc'=>$request->ten_linh_vuc,
+                'trang_thai'=> 1,
+            ]
+        );
+        return redirect()->route('linhvucs.index');
     }
 
     /**
