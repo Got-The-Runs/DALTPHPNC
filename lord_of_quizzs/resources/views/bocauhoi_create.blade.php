@@ -18,7 +18,7 @@
                                     <option value="{{$linhvuc->id}}" class="text-danger" >{{$linhvuc->ten_linh_vuc}}</option>
                                 @endforeach
                                 </select>
-                                <br>@if($errors->has('linhvuc')) {{$errors->first('linhvuc')}} <br>@endif
+                                @if($errors->has('linhvuc')) {{$errors->first('linhvuc')}} @endif
                             </div>
                     </div>
                     <div class="card-footer">

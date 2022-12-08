@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LinhVuc;
 use App\Models\BoCauHoi;
 use App\Http\Requests\StoreBoCauHoiRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateBoCauHoiRequest;
 
 class BoCauHoiController extends Controller
@@ -18,7 +19,9 @@ class BoCauHoiController extends Controller
     {
         //
         $lst =BoCauHoi::all();
-        return view('bocauhoi',['lst' => $lst]);
+        return view('bocauhoi',['lst' => $lst,
+
+    ]);
     }
 
     /**
@@ -57,7 +60,7 @@ class BoCauHoiController extends Controller
      */
     public function show(BoCauHoi $boCauHoi)
     {
-        //
+       //
     }
 
     /**
@@ -66,9 +69,12 @@ class BoCauHoiController extends Controller
      * @param  \App\Models\BoCauHoi  $boCauHoi
      * @return \Illuminate\Http\Response
      */
-    public function edit(BoCauHoi $boCauHoi)
+    public function edit(BoCauHoi $bocauhoi)
     {
-        //
+        $lst=LinhVuc::all();
+        return view('bocauhoi_edit',[
+            'p'=>$bocauhoi,'lst'=>$lst,       
+    ]);
     }
 
     /**
@@ -78,9 +84,13 @@ class BoCauHoiController extends Controller
      * @param  \App\Models\BoCauHoi  $boCauHoi
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBoCauHoiRequest $request, BoCauHoi $boCauHoi)
+    public function update(UpdateBoCauHoiRequest $request, BoCauHoi $bocauhoi)
     {
-        //
+        $bocauhoi->fill([
+            'linh_vuc_id'=>$request->linhvuc,
+        ]);
+        $bocauhoi->save();
+        return redirect()->route('bocauhois.index');
     }
 
     /**
@@ -89,8 +99,13 @@ class BoCauHoiController extends Controller
      * @param  \App\Models\BoCauHoi  $boCauHoi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BoCauHoi $boCauHoi)
+    public function destroy(BoCauHoi $bocauhoi)
     {
-        //
+        $bocauhoi->fill([
+            'trang_thai'=> 0,
+        ]);
+        $bocauhoi->save();
+        // $bocauhoi->delete();
+        return redirect()->route('bocauhois.index');
     }
 }

@@ -1,5 +1,5 @@
 
-@extends('layouts.app', ['activePage' => 'bocauhoi', 'titlePage' => __('Bộ Câu Hỏi')])
+@extends('layouts.app', ['activePage' => 'bocauhois', 'titlePage' => __('Bộ Câu Hỏi')])
 @section('content')
 <div class="row">
   <div class="col-md-12">
@@ -52,8 +52,12 @@
                              <i class="fas fa-ellipsis-v"></i>
                           </a>
                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                         <a class="dropdown-item" href="#">Edit</a>
-                         <a class="dropdown-item" href="#">Delete</a>
+                         <a class="dropdown-item" href="{{route('bocauhois.edit',['bocauhoi'=>$p->id])}}">Edit</a>
+                         <form method="post" action="{{route('bocauhois.destroy',['bocauhoi'=>$p->id])}}">
+                          @csrf
+                          @method('DELETE')
+                            <input type="submit" class="dropdown-item">
+                        </form>                 
                       </div>
                     </div>
                  </td>
