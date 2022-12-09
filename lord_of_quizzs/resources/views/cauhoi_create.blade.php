@@ -41,7 +41,7 @@
                             @if($errors->has('cau_tra_loi_4')) {{$errors->first('cau_tra_loi_4')}} @endif
 
                             <div class="form-group">
-                                <label class="text-white bg-dark">{{ __('Chọn Đáp Án') }}</label>
+                                <label>{{ __('Chọn Đáp Án') }}</label>
                                 <select name="dap_an" value="{{old('dap_an')}}" class="form-control" >
                                 <option value='' class="text-danger">Chọn đáp án</option> 
                                 <option value='1' class="text-danger">Đáp án 1</option>

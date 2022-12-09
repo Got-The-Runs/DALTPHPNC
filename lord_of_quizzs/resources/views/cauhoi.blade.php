@@ -69,7 +69,7 @@
                         <p>{{$p->cau_tra_loi_4}}</p>
                     </td>
                      <td>
-                        <p></p>
+                        <p>{{$p->dap_an}}</p>
                     </td>
                     <td>
                     <p>{{$p->trang_thai==1?"Hoạt Động":"Không Hoạt Động"}}</p>
@@ -81,7 +81,7 @@
                              <i class="fas fa-ellipsis-v"></i>
                           </a>
                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                         <a class="dropdown-item" href="#">Edit</a>
+                         <a class="dropdown-item" href="{{route('cauhois.edit',['cauhoi'=>$p->id])}}">Edit</a>
                          <a class="dropdown-item" href="#">Delete</a>
                       </div>
                     </div>

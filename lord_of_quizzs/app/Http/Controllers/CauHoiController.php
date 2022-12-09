@@ -68,9 +68,12 @@ class CauHoiController extends Controller
      * @param  \App\Models\CauHoi  $cauHoi
      * @return \Illuminate\Http\Response
      */
-    public function edit(CauHoi $cauHoi)
+    public function edit(CauHoi $cauhoi)
     {
-        //
+        $lst=CauHoi::all();
+        return view('cauhoi_edit',[
+        'p'=>$cauhoi,'lst'=>$lst,  
+        ]); 
     }
 
     /**
@@ -80,9 +83,20 @@ class CauHoiController extends Controller
      * @param  \App\Models\CauHoi  $cauHoi
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCauHoiRequest $request, CauHoi $cauHoi)
+    public function update(UpdateCauHoiRequest $request, CauHoi $cauhoi)
     {
         //
+        $cauhoi->fill([
+            'id'=>$request->id,
+            'cau_hoi'=>$request->cau_hoi,
+            'cau_tra_loi_1'=>$request->cau_tra_loi_1,
+            'cau_tra_loi_2'=>$request->cau_tra_loi_2,
+            'cau_tra_loi_3'=>$request->cau_tra_loi_3,
+            'cau_tra_loi_4'=>$request->cau_tra_loi_4,
+            'dap_an'=>$request->dap_an,
+        ]);
+        $cauhoi->save();
+        return redirect()->route('cauhois.index');
     }
 
     /**
