@@ -101,11 +101,21 @@ class BoCauHoiController extends Controller
      */
     public function destroy(BoCauHoi $bocauhoi)
     {
-        $bocauhoi->fill([
-            'trang_thai'=> 0,
-        ]);
-        $bocauhoi->save();
-        // $bocauhoi->delete();
-        return redirect()->route('bocauhois.index');
+        if($bocauhoi->trang_thai== 1){
+            $bocauhoi->fill([
+                'trang_thai'=> 0,
+            ]);
+            $bocauhoi->save();
+            // $bocauhoi->delete();
+            return redirect()->route('bocauhois.index');
+        }
+        else if($bocauhoi->trang_thai== 0){
+            $bocauhoi->fill([
+                'trang_thai'=> 1,
+            ]);
+            $bocauhoi->save();
+            return redirect()->route('bocauhois.index');
+        }
+        
     }
 }

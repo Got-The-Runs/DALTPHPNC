@@ -56,7 +56,7 @@
                          <form method="post" action="{{route('bocauhois.destroy',['bocauhoi'=>$p->id])}}">
                           @csrf
                           @method('DELETE')
-                            <input type="submit" value="Xóa" class="dropdown-item">
+                            <input type="submit" value="{{$p->trang_thai== 1?'Xóa':'Khôi Phục'}}" class="dropdown-item">
                         </form>                 
                       </div>
                     </div>
