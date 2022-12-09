@@ -13,7 +13,7 @@ class UpdateCauHoiRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,20 @@ class UpdateCauHoiRequest extends FormRequest
     {
         return [
             //
+            'cau_hoi'=>['required'],
+            'cau_tra_loi_1'=>['required'],
+            'cau_tra_loi_2'=>['required'],
+            'cau_tra_loi_3'=>['required'],
+            'cau_tra_loi_4'=>['required'],
+        ];
+    }
+    public function messages(){
+        return [
+            'cau_hoi.required'=>'Chưa nhập câu hỏi',
+            'cau_tra_loi_1.required'=>'Chưa nhập câu trả lời 1',
+            'cau_tra_loi_2.required'=>'Chưa nhập câu trả lời 2',
+            'cau_tra_loi_3.required'=>'Chưa nhập câu trả lời 3',
+            'cau_tra_loi_4.required'=>'Chưa nhập câu trả lời 4',
         ];
     }
 }

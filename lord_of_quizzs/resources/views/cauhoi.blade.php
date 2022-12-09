@@ -10,7 +10,7 @@
                         <h4 class="card-title">Danh Sách Câu Hỏi</h4>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="#" class="btn btn-fill btn-success">Thêm Câu Hỏi</a>
+                        <a href="{{ route('cauhois.create') }}" class="btn btn-fill btn-success">Thêm Câu Hỏi</a>
                     </div>
                 </div>
       </div>
@@ -72,7 +72,7 @@
                         <p>{{$p->dap_an}}</p>
                     </td>
                     <td>
-                        <p>{{$p->trang_thai}}</p>
+                    <p>{{$p->trang_thai==1?"Hoạt Động":"Không Hoạt Động"}}</p>
                     </td>
                 </div>
                 <td class="text-right">
@@ -81,7 +81,7 @@
                              <i class="fas fa-ellipsis-v"></i>
                           </a>
                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                         <a class="dropdown-item" href="#">Edit</a>
+                         <a class="dropdown-item" href="{{route('cauhois.edit',['cauhoi'=>$p->id])}}">Edit</a>
                          <a class="dropdown-item" href="#">Delete</a>
                       </div>
                     </div>
