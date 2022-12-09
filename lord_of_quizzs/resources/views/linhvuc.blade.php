@@ -52,8 +52,12 @@
                              <i class="fas fa-ellipsis-v"></i>
                           </a>
                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                         <a class="dropdown-item" href="{{route('linhvucs.edit',['linhvuc'=>$p->id])}}">Edit</a>
-                         <a class="dropdown-item" href="#">Delete</a>
+                         <a class="dropdown-item" href="{{route('linhvucs.edit',['linhvuc'=>$p->id])}}">Sửa </a>
+                         <form method="post" action="{{route('linhvucs.destroy',['linhvuc'=>$p->id])}}">
+                          @csrf
+                          @method('DELETE')
+                            <input type="submit" value="Xóa" class="dropdown-item">
+                        </form>       
                       </div>
                     </div>
                  </td>
