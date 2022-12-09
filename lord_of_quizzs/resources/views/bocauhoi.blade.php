@@ -52,11 +52,11 @@
                              <i class="fas fa-ellipsis-v"></i>
                           </a>
                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                         <a class="dropdown-item" href="{{route('bocauhois.edit',['bocauhoi'=>$p->id])}}">Edit</a>
+                         <a class="dropdown-item" href="{{route('bocauhois.edit',['bocauhoi'=>$p->id])}}">Sửa</a>
                          <form method="post" action="{{route('bocauhois.destroy',['bocauhoi'=>$p->id])}}">
                           @csrf
                           @method('DELETE')
-                            <input type="submit" class="dropdown-item">
+                            <input type="submit" value="Xóa" class="dropdown-item">
                         </form>                 
                       </div>
                     </div>

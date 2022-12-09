@@ -18,7 +18,8 @@ class ChiTietBoCauHoiController extends Controller
     public function index()
     {
         $lst =ChiTietBoCauHoi::all();
-        return view('chitietbocauhoi',['lst' => $lst]);
+        $lstcauhoi =CauHoi::all();
+        return view('chitietbocauhoi',['lst' => $lst,'lstcauhoi'=>$lstcauhoi]);
     }
 
     /**
@@ -68,9 +69,16 @@ class ChiTietBoCauHoiController extends Controller
      * @param  \App\Models\ChiTietBoCauHoi  $chiTietBoCauHoi
      * @return \Illuminate\Http\Response
      */
-    public function edit(ChiTietBoCauHoi $chiTietBoCauHoi)
+    public function edit(ChiTietBoCauHoi $chitietbocauhoi)
     {
         //
+        $lst=ChiTietBoCauHoi::all();
+        $lstbocauhoi = BoCauHoi::all();
+        $lstcauhoi = CauHoi::all();
+        
+        return view('chitietbocauhoi_edit',[
+            'p'=>$chitietbocauhoi,'lst'=>$lst, 'lstBoCauHoi'=>$lstbocauhoi ,'lstCauHoi'=>$lstcauhoi    
+    ]);
     }
 
     /**
@@ -80,9 +88,15 @@ class ChiTietBoCauHoiController extends Controller
      * @param  \App\Models\ChiTietBoCauHoi  $chiTietBoCauHoi
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateChiTietBoCauHoiRequest $request, ChiTietBoCauHoi $chiTietBoCauHoi)
+    public function update(UpdateChiTietBoCauHoiRequest $request, ChiTietBoCauHoi $chitietbocauhoi)
     {
         //
+        $chitietbocauhoi->fill([
+            'bo_cau_hoi_id'=>$request->bocauhoi,
+            'cau_hoi_id'=>$request->cauhoi,
+        ]);
+        $chitietbocauhoi->save();
+        return redirect()->route('chitietbocauhois.index');
     }
 
     /**
@@ -91,8 +105,13 @@ class ChiTietBoCauHoiController extends Controller
      * @param  \App\Models\ChiTietBoCauHoi  $chiTietBoCauHoi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ChiTietBoCauHoi $chiTietBoCauHoi)
+    public function destroy(ChiTietBoCauHoi $chitietbocauhoi)
     {
         //
+        $chitietbocauhoi->fill([
+            'trang_thai'=> 0,
+        ]);
+        $chitietbocauhoi->save();
+        return redirect()->route('chitietbocauhois.index');
     }
 }

@@ -40,7 +40,11 @@
                         <p>{{$p->bo_cau_hoi_id}}</p>
                     </td>
                     <td>
-                        <p>{{$p->cau_hoi_id}}</p>
+                        @foreach($lstcauhoi as $cauhoi)   
+                                @if($cauhoi->id == $p->cau_hoi_id)     
+                                <p>{{$cauhoi->cau_hoi}}</p> 
+                                    @endif
+                                @endforeach
                     </td>
                     <td>
                         <p>{{$p->trang_thai}}</p>
@@ -52,8 +56,12 @@
                              <i class="fas fa-ellipsis-v"></i>
                           </a>
                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                         <a class="dropdown-item" href="#">Edit</a>
-                         <a class="dropdown-item" href="#">Delete</a>
+                         <a class="dropdown-item" href="{{route('chitietbocauhois.edit',['chitietbocauhoi'=>$p->id])}}">Edit</a>
+                         <form method="post" action="{{route('chitietbocauhois.destroy',['chitietbocauhoi'=>$p->id])}}">
+                          @csrf
+                          @method('DELETE')
+                            <input type="submit" value="Xóa" class="dropdown-item">
+                        </form>       
                       </div>
                     </div>
                  </td>

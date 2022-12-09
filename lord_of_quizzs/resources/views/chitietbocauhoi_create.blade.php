@@ -25,7 +25,7 @@
                                 <select name="cau_hoi_id" value="{{old('bo_cau_hoi_id')}}" class="form-control" >
                                 <option value='' class="text-danger">Câu Hỏi</option>
                                 @foreach($lsCauHoi as $cauhoi)
-                                    <option value="{{$cauhoi->id}}" class="text-danger" >{{$cauhoi->id}}</option>
+                                    <option value="{{$cauhoi->id}}" class="text-danger" >{{$cauhoi->cau_hoi}}</option>
                                 @endforeach
                                 </select>
                                 <br>@if($errors->has('cau_hoi_id')) {{$errors->first('cau_hoi_id')}} <br>@endif

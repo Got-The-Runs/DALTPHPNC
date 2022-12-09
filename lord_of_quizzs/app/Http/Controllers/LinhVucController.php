@@ -98,8 +98,13 @@ class LinhVucController extends Controller
      * @param  \App\Models\LinhVuc  $linhVuc
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LinhVuc $linhVuc)
+    public function destroy(LinhVuc $linhvuc)
     {
         //
+        $linhvuc->fill([
+            'trang_thai'=> 0,
+        ]);
+        $linhvuc->save();
+        return redirect()->route('linhvucs.index');
     }
 }
