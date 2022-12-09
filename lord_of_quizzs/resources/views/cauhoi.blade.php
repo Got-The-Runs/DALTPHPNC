@@ -69,7 +69,19 @@
                         <p>{{$p->cau_tra_loi_4}}</p>
                     </td>
                      <td>
-                        <p>{{$p->dap_an}}</p>
+                        <!-- <p>{{$p->dap_an}}</p> -->
+                        @if($p->dap_an == 1)
+                        <p>{{$p->cau_tra_loi_1}}</p>
+
+                        @elseif($p->dap_an == 2)
+                        <p>{{$p->cau_tra_loi_2}}</p>
+
+                        @elseif($p->dap_an == 3)
+                        <p>{{$p->cau_tra_loi_3}}</p>
+                        
+                        @else
+                        <p>{{$p->cau_tra_loi_3}}</p>
+                        @endif
                     </td>
                     <td>
                     <p>{{$p->trang_thai==1?"Hoạt Động":"Không Hoạt Động"}}</p>
