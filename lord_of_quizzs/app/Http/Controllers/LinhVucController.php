@@ -65,9 +65,13 @@ class LinhVucController extends Controller
      * @param  \App\Models\LinhVuc  $linhVuc
      * @return \Illuminate\Http\Response
      */
-    public function edit(LinhVuc $linhVuc)
+    public function edit(LinhVuc $linhvuc)
     {
         //
+        $lst=LinhVuc::all();
+        return view('linhvuc_edit',[
+        'p'=>$linhvuc,'lst'=>$lst,  
+        ]); 
     }
 
     /**
@@ -77,9 +81,15 @@ class LinhVucController extends Controller
      * @param  \App\Models\LinhVuc  $linhVuc
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLinhVucRequest $request, LinhVuc $linhVuc)
+    public function update(UpdateLinhVucRequest $request, LinhVuc $linhvuc)
     {
-        //
+
+        $linhvuc->fill([
+            'id'=>$request->id,
+            'ten_linh_vuc'=>$request->ten_linh_vuc,
+        ]);
+        $linhvuc->save();
+        return redirect()->route('linhvucs.index');
     }
 
     /**
