@@ -1,6 +1,20 @@
 
 @extends('layouts.app', ['activePage' => 'linhvuc', 'titlePage' => __('Lĩnh Vực')])
 @section('content')
+<header>
+  <script language="JavaScript" type="text/javascript">
+    function checkDelete(){      
+        return confirm('Bạn có chắc chắn muốn xóa');
+    }
+  </script>
+</header>
+<header>
+  <script language="JavaScript" type="text/javascript">
+    function checkRestore(){      
+        return confirm('Bạn có chắc chắn muốn khôi phục');
+    }
+  </script>
+</header>
 <div class="row">
   <div class="col-md-12">
     <div class="card ">
@@ -56,7 +70,11 @@
                          <form method="post" action="{{route('linhvucs.destroy',['linhvuc'=>$p->id])}}">
                           @csrf
                           @method('DELETE')
-                            <input type="submit" value="Xóa" class="dropdown-item">
+                          @if($p->trang_thai== 1)
+                            <input type="submit" value="Xóa" onclick="return checkDelete()" class="dropdown-item">
+                          @else
+                            <input type="submit" value="Khôi Phục" onclick="return checkRestore()" class="dropdown-item">
+                          @endif
                         </form>       
                       </div>
                     </div>

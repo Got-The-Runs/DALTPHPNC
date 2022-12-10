@@ -108,10 +108,19 @@ class ChiTietBoCauHoiController extends Controller
     public function destroy(ChiTietBoCauHoi $chitietbocauhoi)
     {
         //
-        $chitietbocauhoi->fill([
-            'trang_thai'=> 0,
-        ]);
-        $chitietbocauhoi->save();
-        return redirect()->route('chitietbocauhois.index');
+        if($chitietbocauhoi->trang_thai== 1){
+            $chitietbocauhoi->fill([
+                'trang_thai'=> 0,
+            ]);
+            $chitietbocauhoi->save();
+            return redirect()->route('chitietbocauhois.index');
+        }
+        else if($chitietbocauhoi->trang_thai== 0){
+            $chitietbocauhoi->fill([
+                'trang_thai'=> 1,
+            ]);
+            $chitietbocauhoi->save();
+            return redirect()->route('chitietbocauhois.index');
+        }
     }
 }

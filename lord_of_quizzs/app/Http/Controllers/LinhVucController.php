@@ -101,10 +101,20 @@ class LinhVucController extends Controller
     public function destroy(LinhVuc $linhvuc)
     {
         //
-        $linhvuc->fill([
-            'trang_thai'=> 0,
-        ]);
-        $linhvuc->save();
-        return redirect()->route('linhvucs.index');
+        if($linhvuc->trang_thai== 1){
+            $linhvuc->fill([
+                'trang_thai'=> 0,
+            ]);
+            $linhvuc->save();
+            // $bocauhoi->delete();
+            return redirect()->route('linhvucs.index');
+        }
+        else if($linhvuc->trang_thai== 0){
+            $linhvuc->fill([
+                'trang_thai'=> 1,
+            ]);
+            $linhvuc->save();
+            return redirect()->route('linhvucs.index');
+        }
     }
 }
