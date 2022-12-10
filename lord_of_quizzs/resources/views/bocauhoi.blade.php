@@ -2,8 +2,15 @@
 @extends('layouts.app', ['activePage' => 'bocauhois', 'titlePage' => __('Bộ Câu Hỏi')])
 <header>
   <script language="JavaScript" type="text/javascript">
-    function checkDelete(string temp){
-        return confirm('Bạn có chắc chắn muốn ${{temp}}');
+    function checkDelete(){      
+        return confirm('Bạn có chắc chắn muốn xóa');
+    }
+  </script>
+</header>
+<header>
+  <script language="JavaScript" type="text/javascript">
+    function checkRestore(){      
+        return confirm('Bạn có chắc chắn muốn khôi phục');
     }
   </script>
 </header>
@@ -50,7 +57,7 @@
                         <p>{{$p->linh_vuc_id}}</p>
                     </td>
                     <td>
-                        <p>{{$p->trang_thai}}</p>
+                        <p>{{$p->trang_thai==1?"Hoạt Động":"Không Hoạt Động"}}</p>
                     </td>
                 </div>
                 <td class="text-right">
@@ -59,11 +66,15 @@
                              <i class="fas fa-ellipsis-v"></i>
                           </a>
                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                         <a class="dropdown-item" href="{{route('bocauhois.edit',['bocauhoi'=>$p->id])}}">Sửa</a>
+                         <a class="dropdown-item" href="{{route('bocauhois.edit',['bocauhoi'=>$p->id])}}">Sửa</a>              
                          <form method="post" action="{{route('bocauhois.destroy',['bocauhoi'=>$p->id])}}">
                           @csrf
                           @method('DELETE')
-                            <input type="submit" value="{{$p->trang_thai== 1?'Xóa':'Khôi Phục'}}" onclick="return checkDelete($p->trang_thai== 1?'Xóa':'Khôi Phục')" class="dropdown-item">
+                          @if($p->trang_thai== 1)
+                            <input type="submit" value="Xóa" onclick="return checkDelete()" class="dropdown-item">
+                          @else
+                            <input type="submit" value="Khôi Phục" onclick="return checkRestore()" class="dropdown-item">
+                          @endif
                         </form>                 
                       </div>
                     </div>
