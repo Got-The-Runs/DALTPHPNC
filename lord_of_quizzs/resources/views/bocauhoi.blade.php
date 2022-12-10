@@ -39,7 +39,7 @@
                   Id Bộ Câu Hỏi
                 </th>
                 <th>
-                  Id Lĩnh Vực
+                  Lĩnh Vực
                 </th>
                 <th>
                   Trạng Thái Bộ Câu Hỏi
@@ -54,7 +54,11 @@
                         <p>{{$p->id}}</p>
                     </td>
                     <td>
-                        <p>{{$p->linh_vuc_id}}</p>
+                        @foreach($linhvuc as $lv)   
+                                @if($lv->id == $p->linh_vuc_id)     
+                                <p>{{$lv->ten_linh_vuc}}</p> 
+                                    @endif
+                        @endforeach
                     </td>
                     <td>
                         <p>{{$p->trang_thai==1?"Hoạt Động":"Không Hoạt Động"}}</p>

@@ -18,8 +18,9 @@ class BoCauHoiController extends Controller
     public function index()
     {
         //
+        $linhvuc = LinhVuc::all();
         $lst =BoCauHoi::all();
-        return view('bocauhoi',['lst' => $lst,
+        return view('bocauhoi',['lst' => $lst,'linhvuc'=>$linhvuc
 
     ]);
     }
