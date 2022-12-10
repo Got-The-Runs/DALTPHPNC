@@ -1,5 +1,12 @@
 
 @extends('layouts.app', ['activePage' => 'bocauhois', 'titlePage' => __('Bộ Câu Hỏi')])
+<header>
+  <script language="JavaScript" type="text/javascript">
+    function checkDelete(string temp){
+        return confirm('Bạn có chắc chắn muốn ${{temp}}');
+    }
+  </script>
+</header>
 @section('content')
 <div class="row">
   <div class="col-md-12">
@@ -56,7 +63,7 @@
                          <form method="post" action="{{route('bocauhois.destroy',['bocauhoi'=>$p->id])}}">
                           @csrf
                           @method('DELETE')
-                            <input type="submit" value="{{$p->trang_thai== 1?'Xóa':'Khôi Phục'}}" class="dropdown-item">
+                            <input type="submit" value="{{$p->trang_thai== 1?'Xóa':'Khôi Phục'}}" onclick="return checkDelete($p->trang_thai== 1?'Xóa':'Khôi Phục')" class="dropdown-item">
                         </form>                 
                       </div>
                     </div>
