@@ -20,7 +20,7 @@
     <div class="card ">
       <div class="card-header">
       <div class="row">
-                    <div class="col-8">
+                    <div class="col-8 mt-3">
                         <h4 class="card-title">Danh Sách Câu Hỏi</h4>
                     </div>
                     <div class="col-4 text-right">
