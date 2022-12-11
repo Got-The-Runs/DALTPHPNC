@@ -4,13 +4,11 @@
 <?php
  
 $dataPoints = array( 
-	array("y" => 12312, "label" => "Câu hỏi" ),
-	array("y" => 2435.94, "label" => "France" ),
-	array("y" => 1842.55, "label" => "China" ),
-	array("y" => 1828.55, "label" => "Russia" ),
-	array("y" => 1039.99, "label" => "Switzerland" ),
-	array("y" => 765.215, "label" => "Japan" ),
-	array("y" => 612.453, "label" => "Netherlands" )
+	array("y" => $demnguoichoi, "label" => "Tài Khoản" ),
+	array("y" => $demlinhvuc, "label" => "Lĩnh Vực" ),
+	array("y" => $dembocauhoi, "label" => "Bộ Câu Hỏi" ),
+	array("y" => $demcauhoi, "label" => "Câu Hỏi" ),
+	array("y" => $demchitietbocauhoi, "label" => "Chi Tiết bộ câu hỏi" ),
 );
  
 ?>
@@ -22,15 +20,14 @@ $dataPoints = array(
                         <div class="col-sm-12 text-left">
                         </div>
                         <div class="col-sm-12">
-                        <div id="chartContainer" style="height: 500; width: 100%;"></div>
+                        <div id="chartContainer"  style="height: 500; width: 100%;"></div>
+                        <div >
+                            <p></p>
+                        </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="chartBig1"></canvas>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -40,7 +37,7 @@ window.onload = function() {
  
 var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
-	theme: "light2",
+	theme: "dark2",
 	title:{
 		text: "Bảng Thống kê"
 	},

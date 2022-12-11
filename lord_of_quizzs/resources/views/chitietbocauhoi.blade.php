@@ -39,7 +39,7 @@
                   Id Bộ Câu Hỏi
                 </th>
                 <th>
-                  Id Câu Hỏi
+                  Câu Hỏi
                 </th>
                 <th>
                   Trạng Thái Chi Tiết Bộ Câu Hỏi
@@ -61,7 +61,7 @@
                                 @endforeach
                     </td>
                     <td>
-                        <p>{{$p->trang_thai}}</p>
+                        <p>{{$p->trang_thai==1?'Hoạt Động':'Không Hoạt Động'}}</p>
                     </td>
                 </div>
                 <td class="text-right">
