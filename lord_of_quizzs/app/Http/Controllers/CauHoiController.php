@@ -105,8 +105,21 @@ class CauHoiController extends Controller
      * @param  \App\Models\CauHoi  $cauHoi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CauHoi $cauHoi)
+    public function destroy(CauHoi $cauhoi)
     {
-        //
+        if($cauhoi->trang_thai== 1){
+            $cauhoi->fill([
+                'trang_thai'=> 0,
+            ]);
+            $cauhoi->save();
+            return redirect()->route('cauhois.index');
+        }
+        else if($cauhoi->trang_thai== 0){
+            $cauhoi->fill([
+                'trang_thai'=> 1,
+            ]);
+            $cauhoi->save();
+            return redirect()->route('cauhois.index');
+        }
     }
 }

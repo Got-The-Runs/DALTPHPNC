@@ -20,4 +20,21 @@ class UserController extends Controller
         return view('users.index',['lst' => $lst]);
         // return view('users.index', ['users' => $model->paginate(15)]);
     }
+    public function destroy(User $user)
+    {
+        if($user->trang_thai== 1){
+            $user->fill([
+                'trang_thai'=> 0,
+            ]);
+            $user->save();
+            return redirect()->route('user.index');
+        }
+        else if($user->trang_thai== 0){
+            $user->fill([
+                'trang_thai'=> 1,
+            ]);
+            $user->save();
+            return redirect()->route('user.index');
+        }
+    }
 }
