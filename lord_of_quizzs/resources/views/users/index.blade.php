@@ -51,6 +51,20 @@
         })(window,document,'script','dataLayer','GTM-NKDMSK6');</script>
         <!-- End Google Tag Manager -->
     </head>
+    <header>
+  <script language="JavaScript" type="text/javascript">
+    function checkDelete(){      
+        return confirm('Bạn có chắc chắn muốn xóa');
+    }
+  </script>
+</header>
+<header>
+  <script language="JavaScript" type="text/javascript">
+    function checkRestore(){      
+        return confirm('Bạn có chắc chắn muốn khôi phục');
+    }
+  </script>
+</header>
 <body class="">
             <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
@@ -234,9 +248,9 @@
                     <div class="col-8">
                         <h4 class="card-title">Users</h4>
                     </div>
-                    <div class="col-4 text-right">
+                    <!-- <div class="col-4 text-right">
                         <a href="#" class="btn btn-sm btn-primary">Add user</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="card-body">
@@ -277,8 +291,16 @@
                                                <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                      <a class="dropdown-item" href="#">Edit</a>
-                                      <a class="dropdown-item" href="#">Delete</a>
+                                      <!-- <a class="dropdown-item" href="#">Edit</a> -->
+                                      <form method="post" action="{{route('user.destroy',['user'=>$p->id])}}">
+                                        @csrf
+                                        @method('DELETE')
+                                        @if($p->trang_thai== 1)
+                                            <input type="submit" value="Xóa" onclick="return checkDelete()" class="dropdown-item">
+                                        @else
+                                            <input type="submit" value="Khôi Phục" onclick="return checkRestore()" class="dropdown-item">
+                                        @endif
+                                        </form>
                                    </div>
                                </div>
                             </td>

@@ -1,5 +1,19 @@
 
 @extends('layouts.app', ['activePage' => 'cauhoi', 'titlePage' => __('Quản lý Câu Hỏi')])
+<header>
+  <script language="JavaScript" type="text/javascript">
+    function checkDelete(){      
+        return confirm('Bạn có chắc chắn muốn xóa');
+    }
+  </script>
+</header>
+<header>
+  <script language="JavaScript" type="text/javascript">
+    function checkRestore(){      
+        return confirm('Bạn có chắc chắn muốn khôi phục');
+    }
+  </script>
+</header>
 @section('content')
 <div class="row">
   <div class="col-md-12">
@@ -94,7 +108,15 @@
                           </a>
                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                          <a class="dropdown-item" href="{{route('cauhois.edit',['cauhoi'=>$p->id])}}">Edit</a>
-                         <a class="dropdown-item" href="#">Delete</a>
+                         <form method="post" action="{{route('cauhois.destroy',['cauhoi'=>$p->id])}}">
+                          @csrf
+                          @method('DELETE')
+                          @if($p->trang_thai== 1)
+                            <input type="submit" value="Xóa" onclick="return checkDelete()" class="dropdown-item">
+                          @else
+                            <input type="submit" value="Khôi Phục" onclick="return checkRestore()" class="dropdown-item">
+                          @endif
+                        </form>    
                       </div>
                     </div>
                  </td>
