@@ -39,11 +39,11 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	theme: "dark2",
 	title:{
-		text: "Bảng Thống kê"
+		text: "Bảng Thống Kê"
 	},
 	data: [{
 		type: "column",
-		yValueFormatString: "#,##0.## tonnes",
+		yValueFormatString: "#,##0 tonnes",
 		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
 	}]
 });
