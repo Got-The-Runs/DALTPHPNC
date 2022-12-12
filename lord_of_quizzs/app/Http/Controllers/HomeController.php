@@ -38,7 +38,7 @@ class HomeController extends Controller
         $lstBoCauHoi = BoCauHoi::all();
         $dembocauhoi = count($lstBoCauHoi);
 
-        $lstCauHoi = CauHoi::all()->except('trang_thai'==1);
+        $lstCauHoi = CauHoi::all();
         $demcauhoi = count($lstCauHoi);
 
         $lstChiTietBoCauHoi = ChiTietBoCauHoi::all();
@@ -50,6 +50,5 @@ class HomeController extends Controller
             'demcauhoi'=>$demcauhoi,
             'demchitietbocauhoi'=>$demchitietbocauhoi
         ]);
-        // return view('linhvuc',['lst' => $lst]);
     }
 }
