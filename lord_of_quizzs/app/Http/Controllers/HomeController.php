@@ -29,19 +29,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $lstNguoiChoi = User::all();
+        $lstNguoiChoi = User::where('trang_thai',1)->get();
         $demnguoichoi = count($lstNguoiChoi);
 
-        $lstLinhVuc = LinhVuc::all();
+        $lstLinhVuc = LinhVuc::where('trang_thai',1)->get();
         $demlinhvuc = count($lstLinhVuc);
 
-        $lstBoCauHoi = BoCauHoi::all();
+        $lstBoCauHoi = BoCauHoi::where('trang_thai',1)->get();
         $dembocauhoi = count($lstBoCauHoi);
 
-        $lstCauHoi = CauHoi::all();
+        $lstCauHoi = CauHoi::where('trang_thai',1)->get();
         $demcauhoi = count($lstCauHoi);
 
-        $lstChiTietBoCauHoi = ChiTietBoCauHoi::all();
+        $lstChiTietBoCauHoi = ChiTietBoCauHoi::where('trang_thai',1)->get();
         $demchitietbocauhoi = count($lstChiTietBoCauHoi);
         return view('dashboard',[
             'demnguoichoi'=>$demnguoichoi,
