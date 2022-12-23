@@ -42,6 +42,8 @@ class ChiTietBoCauHoiController extends Controller
      */
     public function store(StoreChiTietBoCauHoiRequest $request)
     {
+        $lsBoCauHoi = BoCauHoi::all();
+        $lsCauHoi = CauHoi::all();
         $p =ChiTietBoCauHoi::create(
             [
                 'bo_cau_hoi_id'=>$request->bo_cau_hoi_id,
@@ -49,7 +51,7 @@ class ChiTietBoCauHoiController extends Controller
                 'trang_thai'=> 1,
             ]
         );
-        return redirect()->route('chitietbocauhois.index');
+        return view('chitietbocauhoi_create',['lsBoCauHoi'=> $lsBoCauHoi,'lsCauHoi'=>$lsCauHoi]);
     }
 
     /**

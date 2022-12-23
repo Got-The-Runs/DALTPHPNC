@@ -1,5 +1,11 @@
 @extends('layouts.app')
-
+<header>
+  <script language="JavaScript" type="text/javascript">
+    function checkCreate(){      
+        return confirm('Thêm thành công');
+    }
+  </script>
+</header>
 @section('content')
     <div class="row">
         <div class="col-md-12">

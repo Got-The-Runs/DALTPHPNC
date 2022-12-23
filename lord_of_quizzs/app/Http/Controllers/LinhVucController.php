@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LinhVuc;
+use App\Models\BoCauHoi;
 use App\Http\Requests\StoreLinhVucRequest;
 use App\Http\Requests\UpdateLinhVucRequest;
 
@@ -15,8 +16,9 @@ class LinhVucController extends Controller
      */
     public function index()
     {
+        $lstBCH = BoCauHoi::all();
         $lst =LinhVuc::all();
-        return view('linhvuc',['lst' => $lst]);
+        return view('linhvuc',['lst' => $lst, 'lstBCH'=> $lstBCH]);
     }
 
     /**

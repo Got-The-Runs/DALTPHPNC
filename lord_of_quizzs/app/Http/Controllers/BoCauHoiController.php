@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LinhVuc;
 use App\Models\BoCauHoi;
+use App\Models\ChiTietBoCauHoi;
 use App\Http\Requests\StoreBoCauHoiRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateBoCauHoiRequest;
@@ -20,7 +21,8 @@ class BoCauHoiController extends Controller
         //
         $linhvuc = LinhVuc::all();
         $lst =BoCauHoi::all();
-        return view('bocauhoi',['lst' => $lst,'linhvuc'=>$linhvuc
+        $lstCTBCH = ChiTietBoCauHoi::all();
+        return view('bocauhoi',['lst' => $lst,'linhvuc'=>$linhvuc,'lstCTBCH' =>$lstCTBCH
 
     ]);
     }

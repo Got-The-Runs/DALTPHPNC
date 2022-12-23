@@ -14,6 +14,13 @@
     }
   </script>
 </header>
+<header>
+  <script language="JavaScript" type="text/javascript">
+    function checkCantDelete(){  
+        return confirm('Không thể xóa câu hỏi này vì đang được sử dụng!!');
+    }
+  </script>
+</header>
 @section('content')
 <div class="row">
   <div class="col-md-12">
@@ -74,11 +81,29 @@
                          <form method="post" action="{{route('bocauhois.destroy',['bocauhoi'=>$p->id])}}">
                           @csrf
                           @method('DELETE')
-                          @if($p->trang_thai== 1)
-                            <input type="submit" value="Xóa" onclick="return checkDelete()" class="dropdown-item">
-                          @else
-                            <input type="submit" value="Khôi Phục" onclick="return checkRestore()" class="dropdown-item">
-                          @endif
+                          @foreach($lstCTBCH as $c)
+                            @if($p->trang_thai == 1 && $c->bo_cau_hoi_id == $p->id)
+                            @php
+                            $xoa = 0
+                            @endphp
+                            @break
+                            @elseif($p->trang_thai == 1 && $c->bo_cau_hoi_id != $p->id)
+                            @php
+                            $xoa = 1
+                            @endphp
+                            @elseif($p->trang_thai == 0)
+                            @php
+                            $xoa = 2
+                            @endphp
+                            @endif    
+                          @endforeach    
+                          @if($xoa == 0)
+                             <input value="Xóa" onclick="return checkCantDelete()" class="dropdown-item" readonly>
+                             @elseif($xoa == 1)
+                               <input type="submit" value="Xóa" onclick="return checkDelete()" class="dropdown-item">     
+                             @else
+                               <input type="submit" value="Khôi Phục" onclick="return checkRestore()" class="dropdown-item">
+                             @endif     
                         </form>                 
                       </div>
                     </div>

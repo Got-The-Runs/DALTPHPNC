@@ -50,7 +50,7 @@ class CauHoiController extends Controller
                 'trang_thai'=> 1,
             ]
         );
-        return redirect()->route('cauhois.index');
+        return view('cauhoi_create');
     }
 
     /**
