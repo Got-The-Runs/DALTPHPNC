@@ -23,10 +23,10 @@
                     <div class="col-8">
                         <h4 class="card-title">Users</h4>
                     </div>
-                    <!-- <div class="col-4 text-right">
-                        <a href="#" class="btn btn-sm btn-primary">Add user</a>
-                    </div> -->
-                </div>
+                    <div class="col-4 text-right">
+                        <a href="#" class="btn btn-sm btn-primary">Thêm tài khoản</a>
+                    </div>
+                </div>  
             </div>
             <div class="card-body">
         <div class="table-responsive">

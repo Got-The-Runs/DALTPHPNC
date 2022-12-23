@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChiTietBoCauHoi;
 use App\Models\CauHoi;
 use App\Http\Requests\StoreCauHoiRequest;
 use App\Http\Requests\UpdateCauHoiRequest;
@@ -16,7 +17,8 @@ class CauHoiController extends Controller
     public function index()
     {
         $lst =CauHoi::all();
-        return view('cauhoi',['lst' => $lst]);
+        $lstCTBCH = ChiTietBoCauHoi::all();
+        return view('cauhoi',['lst' => $lst, 'lstCTBCH' => $lstCTBCH]);
     }
 
     /**

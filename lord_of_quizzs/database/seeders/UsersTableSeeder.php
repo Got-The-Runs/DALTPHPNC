@@ -22,7 +22,8 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('secret'),
             'created_at' => now(),
             'updated_at' => now(),
-            'trang_thai'=>1
+            'trang_thai'=>1,
+            'role'=>0
         ]);
     }
 }

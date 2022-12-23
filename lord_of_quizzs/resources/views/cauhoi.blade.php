@@ -14,6 +14,13 @@
     }
   </script>
 </header>
+<header>
+  <script language="JavaScript" type="text/javascript">
+    function checkCantDelete(){  
+        return confirm('Không thể xóa câu hỏi này vì đang được sử dụng!!');
+    }
+  </script>
+</header>
 @section('content')
 <div class="row">
   <div class="col-md-12">
@@ -28,7 +35,6 @@
                     </div>
                 </div>
       </div>
-      
       <div class="card-body">
         <div class="table-responsive">
           <table class="table tablesorter " id="">
@@ -108,14 +114,28 @@
                           </a>
                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                          <a class="dropdown-item" href="{{route('cauhois.edit',['cauhoi'=>$p->id])}}">Sửa</a>
+                         
                          <form method="post" action="{{route('cauhois.destroy',['cauhoi'=>$p->id])}}">
+                        
                           @csrf
                           @method('DELETE')
-                          @if($p->trang_thai== 1)
-                            <input type="submit" value="Xóa" onclick="return checkDelete()" class="dropdown-item">
-                          @else
-                            <input type="submit" value="Khôi Phục" onclick="return checkRestore()" class="dropdown-item">
-                          @endif
+                          @foreach($lstCTBCH as $c)
+                            @if($p->trang_thai == 1 && $c->cau_hoi_id == $p->id)
+                                $xoa = 0
+                            @elseif($p->trang_thai == 1 && $c->cau_hoi_id != $p->id)
+                              $xoa = 1
+                            @elseif($p->trang_thai == 0)
+                              $xoa = 2
+                            @endif    
+                          @endforeach    
+                          @if($xoa == 0)
+                          <input value="Xóa" onclick="return checkCantDelete()" class="dropdown-item">
+                             @elseif($xoa == 1)
+                               <input type="submit" value="Xóa" onclick="return checkDelete()" class="dropdown-item">     
+                             @elseif($xoa == 2)
+                               <input type="submit" value="Khôi Phục" onclick="return checkRestore()" class="dropdown-item">
+                             @endif    
+                                   
                         </form>    
                       </div>
                     </div>
