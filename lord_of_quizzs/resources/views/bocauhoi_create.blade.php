@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app',['page' => 'Quản Lý Bộ Câu Hỏi'])
 
 @section('content')
     <div class="row">

@@ -1,5 +1,5 @@
 
-@extends('layouts.app', ['activePage' => 'linhvuc', 'titlePage' => __('Lĩnh Vực')])
+@extends('layouts.app', ['page' => 'Quản Lý Lĩnh Vực', 'titlePage' => __('Lĩnh Vực')])
 @section('content')
 <header>
   <script language="JavaScript" type="text/javascript">

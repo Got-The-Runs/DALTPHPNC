@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'login-page', 'page' => __('Reset password'), 'contentClass' => 'login-page'])
+@extends('layouts.app', ['class' => 'login-page', 'page' => __('Quên Mật Khẩu'), 'contentClass' => 'login-page'])
 
 @section('content')
     <div class="col-lg-5 col-md-7 ml-auto mr-auto">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">{{ __('Send Password Reset Link') }}</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">{{ __('Gửi Link Reset Password') }}</button>
                 </div>
             </div>
         </form>

@@ -23,7 +23,6 @@ class UsersTableSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
             'trang_thai'=>1,
-            'role'=>0
         ]);
     }
 }

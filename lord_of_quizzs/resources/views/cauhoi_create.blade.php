@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app',['page' => 'Quản lý Câu Hỏi'])
 <header>
   <script language="JavaScript" type="text/javascript">
     function checkCreate(){      

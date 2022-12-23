@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'cauhoi', 'titlePage' => __('Quản lý Câu Hỏi')])
+@extends('layouts.app', ['page' => 'Quản lý Câu Hỏi'])
 <header>
   <script language="JavaScript" type="text/javascript">
     function checkDelete(){      

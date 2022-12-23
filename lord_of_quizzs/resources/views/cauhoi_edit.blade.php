@@ -1,4 +1,4 @@
-@extends('layouts.app', [ 'titlePage' => __('Câu Hỏi')])
+@extends('layouts.app',['page' => 'Quản lý Câu Hỏi'], [ 'titlePage' => __('Câu Hỏi')])
 
 @section('content')
     <div class="row">

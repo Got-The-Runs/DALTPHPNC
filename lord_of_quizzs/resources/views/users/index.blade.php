@@ -1,5 +1,5 @@
 
-@extends('layouts.app', ['activePage' => 'users', 'titlePage' => __('Danh Sách Tài Khoản')])
+@extends('layouts.app', ['page' => 'Danh Sách Tài Khoản', 'pageSlug' => __('Danh Sách Tài Khoản')])
 <header>
   <script language="JavaScript" type="text/javascript">
     function checkDelete(){      
@@ -21,11 +21,11 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-8">
-                        <h4 class="card-title">Users</h4>
+                        <h4 class="card-title">Tài Khoản</h4>
                     </div>
-                    <div class="col-4 text-right">
+                    <!-- <div class="col-4 text-right">
                         <a href="#" class="btn btn-sm btn-primary">Thêm tài khoản</a>
-                    </div>
+                    </div> -->
                 </div>  
             </div>
             <div class="card-body">
@@ -34,14 +34,14 @@
             <thead class=" text-primary">
             <tr>
                 <th>
-                  Name
+                  Tên 
                 </th>
                 <th>
                   Email
                 </th>
-                <th>
+                <!-- <th>
                   Trạng Thái 
-                </th>
+                </th> -->
               </tr>
             @foreach($lst as $p)
                 <div class="user">                
@@ -54,30 +54,21 @@
                     <td>
                         <p>{{$p->email}}</p>
                     </td>
-                    <td>
+                    <!-- <td>
                             <p>{{$p->trang_thai==1?"Hoạt Động":"Không Hoạt Động"}}</p>
                        
-                    </td>
+                    </td> -->
                 </div>
-                <td class="text-right">
+                <!-- <td class="text-right">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                      <!-- <a class="dropdown-item" href="#">Edit</a> -->
-                                      <form method="post" action="{{route('user.destroy',['user'=>$p->id])}}">
-                                        @csrf
-                                        @method('DELETE')
-                                        @if($p->trang_thai== 1)
-                                            <input type="submit" value="Xóa" onclick="return checkDelete()" class="dropdown-item">
-                                        @else
-                                            <input type="submit" value="Khôi Phục" onclick="return checkRestore()" class="dropdown-item">
-                                        @endif
-                                        </form>
-                                   </div>
+                                      <a class="dropdown-item" href="#">Edit</a> -->
+                                   <!-- </div>
                                </div>
-                            </td>
+                            </td> --> 
               </tr>
             </tbody>
             @endforeach   

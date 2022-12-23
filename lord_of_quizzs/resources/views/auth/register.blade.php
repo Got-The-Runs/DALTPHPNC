@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'register-page', 'page' => __('Register Page'), 'contentClass' => 'register-page'])
+@extends('layouts.app', ['class' => 'register-page', 'page' => __('Trang Đăng Ký'), 'contentClass' => 'register-page'])
 
 @section('content')
     <div class="row">
@@ -19,7 +19,7 @@
                                     <i class="tim-icons icon-single-02"></i>
                                 </div>
                             </div>
-                            <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}">
+                            <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Tên') }}">
                             @include('alerts.feedback', ['field' => 'name'])
                         </div>
                         <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
@@ -37,7 +37,7 @@
                                     <i class="tim-icons icon-lock-circle"></i>
                                 </div>
                             </div>
-                            <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Password') }}">
+                            <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Mật Khẩu') }}">
                             @include('alerts.feedback', ['field' => 'password'])
                         </div>
                         <div class="input-group">
@@ -46,16 +46,16 @@
                                     <i class="tim-icons icon-lock-circle"></i>
                                 </div>
                             </div>
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Confirm Password') }}">
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Xác Nhận Mật Khẩu') }}">
                         </div>
-                        <div class="form-check text-left">
+                        <!-- <div class="form-check text-left">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox">
                                 <span class="form-check-sign"></span>
                                 {{ __('I agree to the') }}
                                 <a href="#">{{ __('terms and conditions') }}</a>.
                             </label>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- <input type="hidden" name="status" value=1 class="form-control"> -->
                     <div class="card-footer">

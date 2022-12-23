@@ -6,9 +6,9 @@
             <div class="header-body text-center mb-7">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 col-md-6">
-                        <h1 class="text-white">{{ __('Welcome!') }}</h1>
+                        <h1 class="text-white">{{ __('Chào Mừng Đến Với Trang Admin!') }}</h1>
                         <p class="text-lead text-light">
-                            {{ __('Use Black Dashboard theme to create a great project.') }}
+                            {{ __('Đăng Nhập Để Thực Hiện Các Chỉnh Sửa') }}
                         </p>
                     </div>
                 </div>
