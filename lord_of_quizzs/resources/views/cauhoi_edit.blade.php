@@ -49,11 +49,10 @@
                                     <div class="form-group">
                                         <label>{{ __('Chọn Đáp Án') }}</label>
                                         <select name="dap_an" value="{{old('dap_an')}}" class="form-control" >
-                                        <option value="{{$cauhoi->id}}" @if($cauhoi->id==old('cauhoi', $p->id)) selected @endif class="text-danger" >{{$cauhoi->dap_an}}</option>
-                                        <option value='1' class="text-danger">Đáp án 1</option>
-                                        <option value='2' class="text-danger">Đáp án 2</option>
-                                        <option value='3' class="text-danger">Đáp án 3</option>
-                                        <option value='4' class="text-danger">Đáp án 4</option>
+                                        <option value='1'@if($cauhoi->dap_an==1) selected @endif  class="text-danger">Đáp án 1</option>
+                                        <option value='2' @if($cauhoi->dap_an==2)  selected @endif class="text-danger">Đáp án 2</option>
+                                        <option value='3' @if($cauhoi->dap_an==3)  selected @endif class="text-danger">Đáp án 3</option>
+                                        <option value='4' @if($cauhoi->dap_an==4)  selected @endif class="text-danger">Đáp án 4</option>
                                     </select>
                                     </div>
 
