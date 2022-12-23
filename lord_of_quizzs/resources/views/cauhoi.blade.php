@@ -116,23 +116,30 @@
                          <a class="dropdown-item" href="{{route('cauhois.edit',['cauhoi'=>$p->id])}}">Sửa</a>
                          
                          <form method="post" action="{{route('cauhois.destroy',['cauhoi'=>$p->id])}}">
-                        
+                          
                           @csrf
                           @method('DELETE')
                           @foreach($lstCTBCH as $c)
                             @if($p->trang_thai == 1 && $c->cau_hoi_id == $p->id)
-                                $xoa = 0
+                            @php
+                            $xoa = 0
+                            @endphp
+                            @break
                             @elseif($p->trang_thai == 1 && $c->cau_hoi_id != $p->id)
-                              $xoa = 1
+                            @php
+                            $xoa = 1
+                            @endphp
                             @elseif($p->trang_thai == 0)
-                              $xoa = 2
+                            @php
+                            $xoa = 2
+                            @endphp
                             @endif    
                           @endforeach    
                           @if($xoa == 0)
-                          <input value="Xóa" onclick="return checkCantDelete()" class="dropdown-item">
+                             <input value="Xóa" onclick="return checkCantDelete()" class="dropdown-item" readonly>
                              @elseif($xoa == 1)
                                <input type="submit" value="Xóa" onclick="return checkDelete()" class="dropdown-item">     
-                             @elseif($xoa == 2)
+                             @else
                                <input type="submit" value="Khôi Phục" onclick="return checkRestore()" class="dropdown-item">
                              @endif    
                                    
