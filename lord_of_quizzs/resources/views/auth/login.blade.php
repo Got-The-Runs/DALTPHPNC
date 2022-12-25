@@ -37,11 +37,11 @@
                             <a href="{{ route('register') }}" class="link footer-link">{{ __('Tạo tài khoản') }}</a>
                         </h6>
                     </div>
-                    <div class="pull-right">
+                    <!-- <div class="pull-right">
                         <h6>    
                             <a href="{{ route('password.request') }}" class="link footer-link">{{ __('Quên mật khẩu?') }}</a>
                         </h6>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </form>

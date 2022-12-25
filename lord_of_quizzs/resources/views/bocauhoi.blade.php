@@ -17,7 +17,7 @@
 <header>
   <script language="JavaScript" type="text/javascript">
     function checkCantDelete(){  
-        return confirm('Không thể xóa câu hỏi này vì đang được sử dụng!!');
+        return confirm('Không thể xóa bộ câu hỏi này vì đang được sử dụng!!');
     }
   </script>
 </header>

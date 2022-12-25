@@ -59,7 +59,7 @@
                     </div>
                     <!-- <input type="hidden" name="status" value=1 class="form-control"> -->
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-round btn-lg">{{ __('Get Started') }}</button>
+                        <button type="submit" class="btn btn-primary btn-round btn-lg">{{ __('Đăng Ký') }}</button>
                     </div>
                 </form>
             </div>
