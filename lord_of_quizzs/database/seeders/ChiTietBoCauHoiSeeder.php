@@ -20,15 +20,23 @@ class ChiTietBoCauHoiSeeder extends Seeder
                 'cau_hoi_id'=> 1,
                 'trang_thai'=> 1,
             ],);
-            ChiTietBoCauHoi::create( [   'bo_cau_hoi_id' => 1,
+            ChiTietBoCauHoi::create( [   'bo_cau_hoi_id' => 2,
                 'cau_hoi_id'=> 2,
                 'trang_thai'=> 1,
             ],);
-            ChiTietBoCauHoi::create([   'bo_cau_hoi_id' => 1,
+            ChiTietBoCauHoi::create([   'bo_cau_hoi_id' => 5,
                 'cau_hoi_id'=> 3,
                 'trang_thai'=> 1,
             ],);
             ChiTietBoCauHoi::create( [   'bo_cau_hoi_id' => 1,
+                'cau_hoi_id'=> 4,
+                'trang_thai'=> 1,
+            ] );
+            ChiTietBoCauHoi::create( [   'bo_cau_hoi_id' => 1,
+                'cau_hoi_id'=> 4,
+                'trang_thai'=> 1,
+            ] );
+            ChiTietBoCauHoi::create( [   'bo_cau_hoi_id' => 2,
                 'cau_hoi_id'=> 4,
                 'trang_thai'=> 1,
             ] );

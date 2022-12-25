@@ -34,7 +34,7 @@ class BoCauHoiController extends Controller
      */
     public function create()
     {
-        $lst = LinhVuc::all();
+        $lst = LinhVuc::where('trang_thai',1)->get();
         return view('bocauhoi_create',['lst'=> $lst]);
     }
 
@@ -74,7 +74,7 @@ class BoCauHoiController extends Controller
      */
     public function edit(BoCauHoi $bocauhoi)
     {
-        $lst=LinhVuc::all();
+        $lst=LinhVuc::where('trang_thai',1)->get();
         return view('bocauhoi_edit',[
             'p'=>$bocauhoi,'lst'=>$lst,       
     ]);

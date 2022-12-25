@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\LinhVuc;
+use App\Models\BoCauHoi;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,19 +17,25 @@ class BoCauHoiSeeder extends Seeder
     public function run()
     {
         //
-        LinhVuc::where('id',1)->first()->bocauhois()->createMany([
-            [
-                'linh_vuc_id'=>1,
+        BoCauHoi::create(
+            [   'linh_vuc_id'=>1,
                 'trang_thai' =>1,
-            ],
-            [
-                'linh_vuc_id'=>3,
-                'trang_thai' =>1,
-            ],
-            [
-                'linh_vuc_id'=>3,
-                'trang_thai' =>1,
-            ],      
-        ]);
+            ]);
+            BoCauHoi::create(
+            [   'linh_vuc_id'=>2,
+                 'trang_thai' =>1,
+            ]);
+            BoCauHoi::create(
+                [   'linh_vuc_id'=>2,
+                     'trang_thai' =>0,
+                ]);
+            BoCauHoi::create(
+                    [   'linh_vuc_id'=>2,
+                         'trang_thai' =>0,
+                    ]);
+             BoCauHoi::create(
+              [   'linh_vuc_id'=>3,
+                   'trang_thai' =>1,
+             ]);
     }
 }

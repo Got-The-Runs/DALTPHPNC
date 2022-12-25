@@ -19,6 +19,7 @@ class ChiTietBoCauHoiController extends Controller
     {
         $lst =ChiTietBoCauHoi::all();
         $lstcauhoi =CauHoi::all();
+
         return view('chitietbocauhoi',['lst' => $lst,'lstcauhoi'=>$lstcauhoi]);
     }
 
@@ -29,8 +30,8 @@ class ChiTietBoCauHoiController extends Controller
      */
     public function create()
     {
-        $lsBoCauHoi = BoCauHoi::all();
-        $lsCauHoi = CauHoi::all();
+        $lsBoCauHoi = BoCauHoi::where('trang_thai',1)->get();
+        $lsCauHoi = CauHoi::where('trang_thai',1)->get();
         return view('chitietbocauhoi_create',['lsBoCauHoi'=> $lsBoCauHoi,'lsCauHoi'=>$lsCauHoi]);
     }
 
@@ -42,8 +43,8 @@ class ChiTietBoCauHoiController extends Controller
      */
     public function store(StoreChiTietBoCauHoiRequest $request)
     {
-        $lsBoCauHoi = BoCauHoi::all();
-        $lsCauHoi = CauHoi::all();
+        $lsBoCauHoi = BoCauHoi::where('trang_thai',1)->get();
+        $lsCauHoi = CauHoi::where('trang_thai',1)->get();
         $p =ChiTietBoCauHoi::create(
             [
                 'bo_cau_hoi_id'=>$request->bo_cau_hoi_id,
@@ -75,8 +76,8 @@ class ChiTietBoCauHoiController extends Controller
     {
         //
         $lst=ChiTietBoCauHoi::all();
-        $lstbocauhoi = BoCauHoi::all();
-        $lstcauhoi = CauHoi::all();
+        $lstbocauhoi = BoCauHoi::where('trang_thai',1)->get();
+        $lstcauhoi = CauHoi::where('trang_thai',1)->get();
         
         return view('chitietbocauhoi_edit',[
             'p'=>$chitietbocauhoi,'lst'=>$lst, 'lstBoCauHoi'=>$lstbocauhoi ,'lstCauHoi'=>$lstcauhoi    

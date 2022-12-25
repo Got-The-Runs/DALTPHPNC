@@ -10,7 +10,7 @@
                     <h1 class="card-title">{{ __('login') }}</h1>
                 </div>
                 <div class="card-body">
-                    <p class="text-dark mb-2">Đăng nhập với <strong>admin@black.com</strong> và mật khẩu <strong>secret</strong></p>
+                    <!-- <p class="text-dark mb-2">Đăng nhập với <strong>admin@black.com</strong> và mật khẩu <strong>secret</strong></p> -->
                     <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
