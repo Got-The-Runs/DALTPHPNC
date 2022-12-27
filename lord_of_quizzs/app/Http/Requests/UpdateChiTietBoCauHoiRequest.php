@@ -24,7 +24,11 @@ class UpdateChiTietBoCauHoiRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'bo_cau_hoi_id'=>['required'],
+            'cau_hoi_id'=>['required']
         ];
+    }
+    public function messages(){
+        return ['bo_cau_hoi_id.required'=>'Vui lòng chọn id bộ câu hỏi','cau_hoi_id.required'=>'Vui lòng chọn id câu hỏi'];
     }
 }
