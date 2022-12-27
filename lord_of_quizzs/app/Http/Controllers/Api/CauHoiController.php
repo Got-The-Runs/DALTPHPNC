@@ -1,0 +1,137 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Models\ChiTietBoCauHoi;
+use App\Models\CauHoi;
+use App\Http\Requests\StoreCauHoiRequest;
+use App\Http\Requests\UpdateCauHoiRequest;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class CauHoiController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $lst =CauHoi::all();
+        $lstCTBCH = ChiTietBoCauHoi::all();
+        $response = [
+            'status' => true,
+            'cauhoi' => $lst
+        ];
+        return response()->json($response, 200);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('cauhoi_create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreCauHoiRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreCauHoiRequest $request)
+    {
+        $p =CauHoi::create(
+            [
+                'cau_hoi'=>$request->cau_hoi,
+                'cau_tra_loi_1'=>$request->cau_tra_loi_1,
+                'cau_tra_loi_2'=>$request->cau_tra_loi_2,
+                'cau_tra_loi_3'=>$request->cau_tra_loi_3,
+                'cau_tra_loi_4'=>$request->cau_tra_loi_4,
+                'dap_an' =>$request ->dap_an,
+                'trang_thai'=> 1,
+            ]
+        );
+        $response = [
+            'status' => true,
+            'cauhoi' => $p
+        ];
+        return response()->json($response, 200);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\CauHoi  $cauHoi
+     * @return \Illuminate\Http\Response
+     */
+    public function show(CauHoi $cauHoi)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateCauHoiRequest  $request
+     * @param  \App\Models\CauHoi  $cauHoi
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateCauHoiRequest $request, CauHoi $cauhoi)
+    {
+        //
+        $cauhoi->fill([
+            'id'=>$request->id,
+            'cau_hoi'=>$request->cau_hoi,
+            'cau_tra_loi_1'=>$request->cau_tra_loi_1,
+            'cau_tra_loi_2'=>$request->cau_tra_loi_2,
+            'cau_tra_loi_3'=>$request->cau_tra_loi_3,
+            'cau_tra_loi_4'=>$request->cau_tra_loi_4,
+            'dap_an'=>$request->dap_an,
+        ]);
+        $cauhoi->save();
+        $response = [
+            'status' => true,
+            'cauhoi' => $cauhoi
+        ];
+        return response()->json($response, 200);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $check = CauHoi::find($id);
+        if($check->trang_thai== 1){
+            $check->fill([
+                'trang_thai'=> 0,
+            ]);
+            $check->save();
+            $response = [
+                'status' => true,
+                'cauhoi' => $check
+            ];
+            return response()->json($response, 200);
+        }
+        else if($check->trang_thai== 0){
+            $check->fill([
+                'trang_thai'=> 1,
+            ]);
+            $check->save();
+            $response = [
+                'status' => true,
+                'cauhoi' => $check
+            ];
+            return response()->json($response, 200);
+        }
+    }
+}
